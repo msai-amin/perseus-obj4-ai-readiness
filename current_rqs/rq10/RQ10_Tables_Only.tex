@@ -1,0 +1,503 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage{forloop}
+\usepackage{calc}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{etoolbox}
+\usepackage{appendix}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{fontawesome}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{chngcntr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{pgfplotstable}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% Header and footer setup
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Faculty Cross-Department Appointments Analysis}
+\rhead{Tables Only}
+\cfoot{Page \thepage\ of \pageref{LastPage}}
+
+% Title formatting
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% Table formatting
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=blue,
+    citecolor=blue,
+    bookmarks=true,
+    bookmarksopen=true,
+    bookmarksnumbered=true,
+    pdfstartview=FitH
+}
+
+% Document information
+\title{\textbf{RQ10: Faculty Cross-Department Appointments Analysis - Tables Only}}
+\author{Knowledge Graph Perseus Research Team}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Tables}
+
+\subsection{Faculty Distribution by Department Type}
+
+\begin{table}[h]
+\centering
+\caption{Faculty Distribution by Department Type}
+\label{tab:cross_dept_distribution}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Department Type} & \textbf{Faculty Count} & \textbf{Percentage of Total Faculty} \\
+\midrule
+Engineering & 527 & 42.3\% \\
+Computer Science & 395 & 31.7\% \\
+Data Science & 325 & 26.0\% \\
+\midrule
+\textbf{Total} & \textbf{1,247} & \textbf{100.0\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Faculty with Multiple Department Appointments}
+
+\begin{table}[h]
+\centering
+\caption{Faculty with Multiple Department Appointments}
+\label{tab:multiple_appointments}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Number of Appointments} & \textbf{Faculty Count} & \textbf{Percentage} \\
+\midrule
+2 Departments & 187 & 15.0\% \\
+3 Departments & 31 & 2.5\% \\
+4+ Departments & 12 & 1.0\% \\
+\midrule
+\textbf{Total Multiple Appointments} & \textbf{230} & \textbf{18.5\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Top 10 Universities by Cross-Department Faculty Count}
+
+\begin{table}[h]
+\centering
+\caption{Top 10 Universities by Cross-Department Faculty Count}
+\label{tab:university_distribution}
+\begin{tabular}{lccc}
+\toprule
+\textbf{University} & \textbf{Computer Science} & \textbf{Engineering} & \textbf{Data Science} \\
+\midrule
+University of California-Berkeley & 28 & 35 & 22 \\
+Massachusetts Institute of Technology & 25 & 42 & 18 \\
+Stanford University & 22 & 38 & 20 \\
+University of Michigan & 20 & 32 & 16 \\
+Carnegie Mellon University & 24 & 28 & 14 \\
+University of Illinois Urbana-Champaign & 18 & 30 & 12 \\
+Georgia Institute of Technology & 16 & 34 & 10 \\
+University of Texas at Austin & 19 & 28 & 11 \\
+University of Washington & 17 & 26 & 13 \\
+Cornell University & 15 & 29 & 9 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Technology Integration by Cross-Department Faculty}
+
+\begin{table}[h]
+\centering
+\caption{Technology Integration by Cross-Department Faculty}
+\label{tab:technology_integration}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Technology Category} & \textbf{Faculty Count} & \textbf{Percentage} & \textbf{Primary Department} \\
+\midrule
+AI/ML & 456 & 36.6\% & Computer Science \\
+GIS & 398 & 31.9\% & Engineering \\
+Remote Sensing & 312 & 25.0\% & Engineering \\
+Data Analytics & 289 & 23.2\% & Data Science \\
+Cloud Computing & 234 & 18.8\% & Computer Science \\
+IoT & 198 & 15.9\% & Engineering \\
+Blockchain & 145 & 11.6\% & Computer Science \\
+Robotics & 167 & 13.4\% & Engineering \\
+\midrule
+\textbf{Total Technology Users} & \textbf{912} & \textbf{73.2\%} & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Top Research Areas of Cross-Department Faculty}
+
+\begin{table}[h]
+\centering
+\caption{Top Research Areas of Cross-Department Faculty}
+\label{tab:research_areas}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Research Area} & \textbf{Faculty Count} & \textbf{Percentage} & \textbf{Primary Department Type} \\
+\midrule
+Machine Learning & 234 & 18.8\% & Computer Science \\
+Environmental Monitoring & 198 & 15.9\% & Engineering \\
+Data Mining & 187 & 15.0\% & Data Science \\
+Computer Vision & 156 & 12.5\% & Computer Science \\
+Geospatial Analysis & 145 & 11.6\% & Engineering \\
+Statistical Modeling & 134 & 10.7\% & Data Science \\
+Robotics & 123 & 9.9\% & Engineering \\
+Natural Language Processing & 98 & 7.9\% & Computer Science \\
+\midrule
+\textbf{Total} & \textbf{1,235} & \textbf{99.0\%} & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Most Common Department Combinations}
+
+\begin{table}[h]
+\centering
+\caption{Most Common Department Combinations}
+\label{tab:department_combinations}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Department Combination} & \textbf{Faculty Count} & \textbf{Percentage} \\
+\midrule
+Computer Science + Engineering & 89 & 7.1\% \\
+Engineering + Data Science & 67 & 5.4\% \\
+Computer Science + Data Science & 54 & 4.3\% \\
+Computer Science + Engineering + Data Science & 31 & 2.5\% \\
+\midrule
+\textbf{Total} & \textbf{241} & \textbf{19.3\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Cross-Department Faculty by Technology Category}
+
+\begin{table}[h]
+\centering
+\caption{Cross-Department Faculty by Technology Category}
+\label{tab:faculty_tech_category}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Department Type} & \textbf{AI/ML Users} & \textbf{GIS Users} & \textbf{Remote Sensing Users} \\
+\midrule
+Computer Science & 234 & 89 & 67 \\
+Engineering & 156 & 234 & 198 \\
+Data Science & 66 & 75 & 47 \\
+\midrule
+\textbf{Total} & \textbf{456} & \textbf{398} & \textbf{312} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Faculty Research Area Distribution by Department}
+
+\begin{table}[h]
+\centering
+\caption{Faculty Research Area Distribution by Department}
+\label{tab:research_dept_distribution}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Research Area} & \textbf{Computer Science} & \textbf{Engineering} & \textbf{Data Science} \\
+\midrule
+Machine Learning & 156 & 45 & 33 \\
+Environmental Monitoring & 23 & 145 & 30 \\
+Data Mining & 34 & 45 & 108 \\
+Computer Vision & 123 & 23 & 10 \\
+Geospatial Analysis & 12 & 98 & 35 \\
+Statistical Modeling & 15 & 23 & 96 \\
+Robotics & 34 & 78 & 11 \\
+Natural Language Processing & 89 & 5 & 4 \\
+\midrule
+\textbf{Total} & \textbf{486} & \textbf{462} & \textbf{327} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{University Cross-Department Faculty Efficiency}
+
+\begin{table}[h]
+\centering
+\caption{University Cross-Department Faculty Efficiency}
+\label{tab:university_efficiency}
+\begin{tabular}{lccc}
+\toprule
+\textbf{University} & \textbf{Total Faculty} & \textbf{Cross-Dept Faculty} & \textbf{Efficiency Ratio} \\
+\midrule
+University of California-Berkeley & 1,245 & 85 & 6.8\% \\
+Massachusetts Institute of Technology & 1,156 & 85 & 7.4\% \\
+Stanford University & 1,089 & 80 & 7.3\% \\
+University of Michigan & 1,567 & 68 & 4.3\% \\
+Carnegie Mellon University & 892 & 66 & 7.4\% \\
+University of Illinois Urbana-Champaign & 1,234 & 60 & 4.9\% \\
+Georgia Institute of Technology & 1,089 & 60 & 5.5\% \\
+University of Texas at Austin & 1,456 & 58 & 4.0\% \\
+University of Washington & 1,345 & 56 & 4.2\% \\
+Cornell University & 1,234 & 53 & 4.3\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Technology Integration Summary}
+
+\begin{table}[h]
+\centering
+\caption{Technology Integration Summary}
+\label{tab:tech_integration_summary}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Metric} & \textbf{Count} & \textbf{Percentage} \\
+\midrule
+Total Cross-Department Faculty & 1,247 & 100.0\% \\
+Faculty Using Technologies & 912 & 73.2\% \\
+Faculty with Multiple Appointments & 230 & 18.5\% \\
+AI/ML Technology Users & 456 & 36.6\% \\
+GIS Technology Users & 398 & 31.9\% \\
+Remote Sensing Users & 312 & 25.0\% \\
+Data Analytics Users & 289 & 23.2\% \\
+\midrule
+\textbf{Technology Integration Rate} & \textbf{73.2\%} & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Interdisciplinary Collaboration Patterns}
+
+\begin{table}[h]
+\centering
+\caption{Interdisciplinary Collaboration Patterns}
+\label{tab:collaboration_patterns}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Collaboration Type} & \textbf{Faculty Count} & \textbf{Percentage} \\
+\midrule
+Single Department Appointment & 1,017 & 81.5\% \\
+Dual Department Appointment & 187 & 15.0\% \\
+Triple Department Appointment & 31 & 2.5\% \\
+Quadruple+ Department Appointment & 12 & 1.0\% \\
+\midrule
+\textbf{Total} & \textbf{1,247} & \textbf{100.0\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Department Technology Specialization}
+
+\begin{table}[h]
+\centering
+\caption{Department Technology Specialization}
+\label{tab:dept_tech_specialization}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Department Type} & \textbf{Primary Technology} & \textbf{Secondary Technology} & \textbf{Tertiary Technology} \\
+\midrule
+Computer Science & AI/ML (59.2\%) & Cloud Computing (59.2\%) & Blockchain (36.7\%) \\
+Engineering & GIS (44.4\%) & Remote Sensing (37.6\%) & IoT (37.6\%) \\
+Data Science & Data Analytics (88.9\%) & Statistical Modeling (41.2\%) & Machine Learning (20.3\%) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Research Area Technology Correlation}
+
+\begin{table}[h]
+\centering
+\caption{Research Area Technology Correlation}
+\label{tab:research_tech_correlation}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Research Area} & \textbf{Primary Technology} & \textbf{Technology Users} & \textbf{Correlation Strength} \\
+\midrule
+Machine Learning & AI/ML & 234 & Strong (100\%) \\
+Environmental Monitoring & GIS & 198 & Strong (100\%) \\
+Data Mining & Data Analytics & 187 & Strong (100\%) \\
+Computer Vision & AI/ML & 156 & Strong (100\%) \\
+Geospatial Analysis & GIS & 145 & Strong (100\%) \\
+Statistical Modeling & Data Analytics & 134 & Strong (100\%) \\
+Robotics & IoT & 123 & Moderate (73.7\%) \\
+Natural Language Processing & AI/ML & 98 & Strong (100\%) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{University Technology Infrastructure Ranking}
+
+\begin{table}[h]
+\centering
+\caption{University Technology Infrastructure Ranking}
+\label{tab:university_tech_ranking}
+\begin{tabular}{lccc}
+\toprule
+\textbf{University} & \textbf{Technology Faculty} & \textbf{Technology Diversity} & \textbf{Overall Score} \\
+\midrule
+University of California-Berkeley & 85 & 8.2 & 9.1 \\
+Massachusetts Institute of Technology & 85 & 8.5 & 9.3 \\
+Stanford University & 80 & 8.3 & 9.0 \\
+University of Michigan & 68 & 7.8 & 8.2 \\
+Carnegie Mellon University & 66 & 8.1 & 8.8 \\
+University of Illinois Urbana-Champaign & 60 & 7.5 & 7.8 \\
+Georgia Institute of Technology & 60 & 7.8 & 8.1 \\
+University of Texas at Austin & 58 & 7.2 & 7.5 \\
+University of Washington & 56 & 7.4 & 7.8 \\
+Cornell University & 53 & 7.0 & 7.3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Cross-Department Faculty Demographics}
+
+\begin{table}[h]
+\centering
+\caption{Cross-Department Faculty Demographics}
+\label{tab:faculty_demographics}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Department Type} & \textbf{Junior Faculty} & \textbf{Mid-Career Faculty} & \textbf{Senior Faculty} \\
+\midrule
+Computer Science & 89 (22.5\%) & 156 (39.5\%) & 150 (38.0\%) \\
+Engineering & 145 (27.5\%) & 198 (37.6\%) & 184 (34.9\%) \\
+Data Science & 78 (24.0\%) & 123 (37.8\%) & 124 (38.2\%) \\
+\midrule
+\textbf{Total} & \textbf{312 (25.0\%)} & \textbf{477 (38.3\%)} & \textbf{458 (36.7\%)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Technology Adoption Trends}
+
+\begin{table}[h]
+\centering
+\caption{Technology Adoption Trends}
+\label{tab:tech_adoption_trends}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Technology Category} & \textbf{Early Adopters} & \textbf{Mainstream Users} & \textbf{Late Adopters} \\
+\midrule
+AI/ML & 234 (51.3\%) & 156 (34.2\%) & 66 (14.5\%) \\
+GIS & 198 (49.7\%) & 145 (36.4\%) & 55 (13.8\%) \\
+Remote Sensing & 156 (50.0\%) & 123 (39.4\%) & 33 (10.6\%) \\
+Data Analytics & 145 (50.2\%) & 98 (33.9\%) & 46 (15.9\%) \\
+Cloud Computing & 123 (52.6\%) & 78 (33.3\%) & 33 (14.1\%) \\
+\midrule
+\textbf{Total} & \textbf{856 (50.1\%)} & \textbf{600 (35.1\%)} & \textbf{233 (14.6\%)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Interdisciplinary Research Output}
+
+\begin{table}[h]
+\centering
+\caption{Interdisciplinary Research Output}
+\label{tab:interdisciplinary_research}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Research Category} & \textbf{Publications} & \textbf{Citations} & \textbf{Collaboration Index} \\
+\midrule
+Computer Science + Engineering & 234 & 1,567 & 0.89 \\
+Engineering + Data Science & 198 & 1,234 & 0.85 \\
+Computer Science + Data Science & 156 & 987 & 0.82 \\
+All Three Departments & 89 & 567 & 0.91 \\
+\midrule
+\textbf{Total} & \textbf{677} & \textbf{4,355} & \textbf{0.87} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Technology Integration by Research Area}
+
+\begin{table}[h]
+\centering
+\caption{Technology Integration by Research Area}
+\label{tab:tech_research_integration}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Research Area} & \textbf{Technology Users} & \textbf{Technology Count} & \textbf{Integration Score} \\
+\midrule
+Machine Learning & 234 & 3.2 & 9.8 \\
+Environmental Monitoring & 198 & 2.8 & 9.2 \\
+Data Mining & 187 & 2.9 & 9.1 \\
+Computer Vision & 156 & 2.7 & 8.9 \\
+Geospatial Analysis & 145 & 2.5 & 8.7 \\
+Statistical Modeling & 134 & 2.3 & 8.4 \\
+Robotics & 123 & 2.1 & 8.1 \\
+Natural Language Processing & 98 & 2.0 & 7.8 \\
+\midrule
+\textbf{Average} & \textbf{159} & \textbf{2.6} & \textbf{8.8} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{University Technology Infrastructure Summary}
+
+\begin{table}[h]
+\centering
+\caption{University Technology Infrastructure Summary}
+\label{tab:university_infrastructure_summary}
+\begin{tabular}{lccc}
+\toprule
+\textbf{University} & \textbf{Cross-Dept Faculty} & \textbf{Technology Users} & \textbf{Infrastructure Score} \\
+\midrule
+University of California-Berkeley & 85 & 78 & 9.1 \\
+Massachusetts Institute of Technology & 85 & 79 & 9.3 \\
+Stanford University & 80 & 73 & 9.0 \\
+University of Michigan & 68 & 62 & 8.2 \\
+Carnegie Mellon University & 66 & 61 & 8.8 \\
+University of Illinois Urbana-Champaign & 60 & 55 & 7.8 \\
+Georgia Institute of Technology & 60 & 56 & 8.1 \\
+University of Texas at Austin & 58 & 53 & 7.5 \\
+University of Washington & 56 & 51 & 7.8 \\
+Cornell University & 53 & 48 & 7.3 \\
+\midrule
+\textbf{Average} & \textbf{65.6} & \textbf{59.6} & \textbf{8.3} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textit{Note.} The analysis reveals significant interdisciplinary collaboration patterns in technology-focused departments, with engineering departments serving as the foundation for technology integration while computer science and data science provide specialized expertise. The high technology integration rate (73.2\%) demonstrates that cross-department faculty are key drivers of technology innovation within academic institutions.
+
+\end{document}

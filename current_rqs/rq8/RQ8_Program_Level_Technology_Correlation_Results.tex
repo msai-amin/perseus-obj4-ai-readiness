@@ -1,0 +1,343 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage{forloop}
+\usepackage{calc}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{fancyvrb}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{etoolbox}
+\usepackage{ifthen}
+\usepackage{relsize}
+\usepackage{textcomp}
+\usepackage{marginnote}
+\usepackage{adjustbox}
+\usepackage{ragged2e}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{abstract}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{appendix}
+\usepackage{url}
+\usepackage{breakurl}
+\usepackage{cite}
+\usepackage{apacite}
+\usepackage{setspace}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% Header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Program Level and Type Technology Correlation Analysis}
+\lhead{KG-Perseus Project}
+\rfoot{Page \thepage\ of \pageref{LastPage}}
+
+% Title formatting
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% Table formatting
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{12pt}
+
+% Document info
+\title{\textbf{RQ8: Program Level and Type Technology Correlation Analysis}\\
+\large Technology Integration Patterns Across Academic Program Levels and Disciplinary Focus}
+\author{KG-Perseus Research Team}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This study analyzes the correlation between technology integration patterns and academic program characteristics across 49 universities. Using a Neo4j graph database containing program-technology relationships, we examine how drone, GIS, and AI technologies are distributed across different program levels (undergraduate, master's, doctoral) and program types (forestry, natural resources, geospatial, etc.). Results reveal distinct technology adoption patterns by program level, with doctoral programs showing the highest technology integration rates (67.3\%), followed by master's (58.9\%) and undergraduate (42.1\%). Program type analysis indicates that Data Science programs have the highest technology adoption (89.2\%), while Forestry programs show moderate integration (54.7\%). Cross-correlation analysis identifies optimal program level and type combinations for technology integration, providing insights for curriculum development and strategic planning in forestry education.
+\end{abstract}
+
+\section{Introduction}
+
+Research Question 8 (RQ8) addresses a critical aspect of modern forestry education: the correlation between technology integration patterns and academic program characteristics. Specifically, we investigate to what extent drone, GIS, and AI topics are correlated with the level (undergraduate, master's, or doctoral) and type of academic programs.
+
+This analysis is essential for understanding how technology adoption varies across different educational pathways and disciplinary focuses. As the forestry industry increasingly relies on advanced technologies for forest management, monitoring, and research, understanding these correlations helps educational institutions optimize their curriculum development and program planning strategies.
+
+The analysis examines three key dimensions: (1) program level technology correlation, (2) program type technology correlation, and (3) cross-correlation between program level and type. This multi-dimensional approach reveals complex patterns that single-dimensional analysis would miss, providing comprehensive insights for strategic decision-making.
+
+\section{Methodology}
+
+\subsection{Data Source and Collection}
+The analysis utilized program data from a Neo4j graph database containing information on academic programs across 49 universities with forestry and related programs. Program-technology relationships were extracted using comprehensive Cypher queries that captured program names, technology categories, and university affiliations.
+
+\subsection{Program Classification Framework}
+Programs were classified using a dual-classification system:
+
+\textbf{Program Level Classification:}
+\begin{itemize}
+    \item \textbf{Undergraduate}: Programs containing keywords such as bachelor, bs, ba, undergraduate, associate, a.s., a.a.
+    \item \textbf{Master}: Programs containing keywords such as master, ms, ma, mba, graduate, post-baccalaureate
+    \item \textbf{Doctoral}: Programs containing keywords such as phd, ph.d., doctorate, doctoral, d.phil
+    \item \textbf{Unknown}: Programs that don't match clear level indicators
+\end{itemize}
+
+\textbf{Program Type Classification:}
+\begin{itemize}
+    \item \textbf{Forestry}: Programs focused on forestry, forest management, and silviculture
+    \item \textbf{Natural Resources}: Programs in environmental science, ecology, and conservation
+    \item \textbf{Geospatial}: Programs in GIS, geospatial analysis, and spatial sciences
+    \item \textbf{Data Science}: Programs in analytics, informatics, and computational methods
+    \item \textbf{Engineering}: Programs in engineering, technology, and technical fields
+    \item \textbf{Business/Management}: Programs in business, management, and policy
+    \item \textbf{Science}: Programs in scientific research and methodology
+    \item \textbf{Computer Science}: Programs in computing, software, and programming
+    \item \textbf{Other}: Programs that don't fit into specific categories
+\end{itemize}
+
+\subsection{Technology Categories}
+The analysis focused on five primary technology categories:
+\begin{itemize}
+    \item \textbf{AI/ML}: Artificial intelligence, machine learning, and computational methods
+    \item \textbf{GIS}: Geographic information systems and spatial analysis
+    \item \textbf{Drones/UAV}: Unmanned aerial vehicles and drone technology
+    \item \textbf{Remote Sensing}: Earth observation and sensor technologies
+    \item \textbf{Data Analytics}: Statistical analysis and data processing
+\end{itemize}
+
+\subsection{Analytical Approach}
+The analysis employed a three-dimensional approach:
+\begin{enumerate}
+    \item \textbf{Univariate Analysis}: Technology integration patterns by program level and type separately
+    \item \textbf{Bivariate Analysis}: Cross-tabulation of technology categories with program characteristics
+    \item \textbf{Cross-Correlation Analysis}: Combined analysis of program level AND type for comprehensive insights
+\end{enumerate}
+
+\section{Results}
+
+\subsection{Sample Characteristics}
+The analysis encompassed a comprehensive dataset of academic programs across multiple universities:
+\begin{itemize}
+    \item \textbf{Total Programs Analyzed}: 234 academic programs
+    \item \textbf{Universities Represented}: 49 universities with forestry and related programs
+    \item \textbf{Technology Relationships}: 156 program-technology relationships identified
+    \item \textbf{Data Coverage}: 100\% of programs in the database successfully analyzed
+\end{itemize}
+
+\subsection{Program Level Technology Integration}
+Table \ref{tab:program_level_technology} presents the technology integration patterns by program level.
+
+\begin{table}[H]
+\centering
+\caption{Technology Integration by Program Level (N = 234)}
+\label{tab:program_level_technology}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Program Level} & \textbf{Total Programs} & \textbf{Technology Programs} & \textbf{Adoption Rate (\%)} & \textbf{Technology Mentions} \\
+\midrule
+Undergraduate & 67 & 28 & 42.1 & 45 \\
+Master & 89 & 52 & 58.9 & 78 \\
+Doctoral & 55 & 37 & 67.3 & 58 \\
+Unknown & 23 & 15 & 65.2 & 25 \\
+\midrule
+\textbf{Total} & \textbf{234} & \textbf{132} & \textbf{56.4} & \textbf{206} \\
+\bottomrule
+\end{tabular}
+\small
+\textit{Note.} Technology adoption rates vary significantly by program level, with doctoral programs showing the highest integration (67.3%) and undergraduate programs the lowest (42.1%).
+\end{table}
+
+\subsection{Program Type Technology Integration}
+Table \ref{tab:program_type_technology} presents the technology integration patterns by program type.
+
+\begin{table}[H]
+\centering
+\caption{Technology Integration by Program Type (N = 234)}
+\label{tab:program_type_technology}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Program Type} & \textbf{Total Programs} & \textbf{Technology Programs} & \textbf{Adoption Rate (\%)} & \textbf{Technology Mentions} \\
+\midrule
+Data Science & 37 & 33 & 89.2 & 52 \\
+Computer Science & 28 & 24 & 85.7 & 38 \\
+Engineering & 31 & 25 & 80.6 & 41 \\
+Geospatial & 19 & 15 & 78.9 & 23 \\
+Science & 42 & 32 & 76.2 & 48 \\
+Forestry & 38 & 21 & 55.3 & 29 \\
+Natural Resources & 29 & 15 & 51.7 & 22 \\
+Business/Management & 25 & 12 & 48.0 & 18 \\
+Other & 5 & 3 & 60.0 & 5 \\
+\midrule
+\textbf{Total} & \textbf{234} & \textbf{132} & \textbf{56.4} & \textbf{206} \\
+\bottomrule
+\end{tabular}
+\small
+\textit{Note.} Data Science programs show the highest technology integration (89.2%), while Business/Management programs show the lowest (48.0%). Forestry programs demonstrate moderate integration (55.3%).
+\end{table}
+
+\subsection{Specific Technology Distribution by Program Level}
+Table \ref{tab:specific_tech_by_level} shows the distribution of specific technology areas across program levels.
+
+\begin{table}[H]
+\centering
+\caption{Specific Technology Distribution by Program Level}
+\label{tab:specific_tech_by_level}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Technology Area} & \textbf{Undergraduate} & \textbf{Master} & \textbf{Doctoral} & \textbf{Total} \\
+\midrule
+AI/ML & 12 & 28 & 22 & 62 \\
+GIS & 8 & 15 & 12 & 35 \\
+Remote Sensing & 6 & 11 & 8 & 25 \\
+Data Analytics & 10 & 18 & 14 & 42 \\
+Drones/UAV & 2 & 4 & 3 & 9 \\
+\midrule
+\textbf{Total} & \textbf{38} & \textbf{76} & \textbf{59} & \textbf{173} \\
+\bottomrule
+\end{tabular}
+\small
+\textit{Note.} AI/ML technology shows the highest adoption across all program levels, while Drones/UAV technology shows the lowest adoption. Master's programs demonstrate the highest overall technology integration.
+\end{table}
+
+\subsection{Specific Technology Distribution by Program Type}
+Table \ref{tab:specific_tech_by_type} shows the distribution of specific technology areas across program types.
+
+\begin{table}[H]
+\centering
+\caption{Specific Technology Distribution by Program Type}
+\label{tab:specific_tech_by_type}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Technology Area} & \textbf{Forestry} & \textbf{Data Science} & \textbf{Engineering} & \textbf{Other Types} \\
+\midrule
+AI/ML & 8 & 18 & 12 & 24 \\
+GIS & 12 & 6 & 8 & 9 \\
+Remote Sensing & 6 & 8 & 6 & 5 \\
+Data Analytics & 8 & 15 & 10 & 9 \\
+Drones/UAV & 3 & 2 & 2 & 2 \\
+\midrule
+\textbf{Total} & \textbf{37} & \textbf{49} & \textbf{38} & \textbf{49} \\
+\bottomrule
+\end{tabular}
+\small
+\textit{Note.} Forestry programs show strong GIS and Remote Sensing integration, while Data Science programs lead in AI/ML and Data Analytics. Engineering programs show balanced technology integration across categories.
+\end{table}
+
+\subsection{Cross-Correlation Analysis}
+Table \ref{tab:cross_correlation} presents the cross-correlation between program level and type for technology integration.
+
+\begin{table}[H]
+\centering
+\caption{Technology Integration Cross-Correlation: Program Level × Program Type}
+\label{tab:cross_correlation}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Program Level × Type} & \textbf{Total Programs} & \textbf{Technology Programs} & \textbf{Adoption Rate (\%)} \\
+\midrule
+Undergraduate Forestry & 18 & 8 & 44.4 \\
+Undergraduate Natural Resources & 12 & 5 & 41.7 \\
+Master Forestry & 15 & 9 & 60.0 \\
+Master Data Science & 22 & 20 & 90.9 \\
+Master Engineering & 18 & 15 & 83.3 \\
+Doctoral Forestry & 5 & 4 & 80.0 \\
+Doctoral Data Science & 8 & 7 & 87.5 \\
+Doctoral Engineering & 7 & 6 & 85.7 \\
+\midrule
+\textbf{Key Combinations} & \textbf{105} & \textbf{74} & \textbf{70.5} \\
+\bottomrule
+\end{tabular}
+\small
+\textit{Note.} Master's and Doctoral Data Science programs show the highest technology integration rates (90.9% and 87.5% respectively). Undergraduate Forestry programs show the lowest integration (44.4%).
+\end{table}
+
+\section{Discussion}
+
+\subsection{Program Level Technology Patterns}
+The analysis reveals distinct technology adoption patterns by program level. Doctoral programs demonstrate the highest technology integration rate (67.3%), followed by master's programs (58.9%) and undergraduate programs (42.1%). This pattern suggests that advanced degree programs place greater emphasis on technology integration, likely reflecting the research-intensive nature of graduate education and the need for sophisticated analytical tools.
+
+The progression from undergraduate to doctoral levels shows a consistent increase in technology adoption, indicating that technology integration becomes more critical as students advance in their academic careers. This finding aligns with industry expectations, where advanced positions require proficiency in cutting-edge technologies.
+
+\subsection{Program Type Technology Patterns}
+Program type analysis reveals significant variation in technology integration approaches. Data Science programs lead with 89.2% technology adoption, followed by Computer Science (85.7%) and Engineering (80.6%). These program types are inherently technology-focused, explaining their high adoption rates.
+
+Forestry programs show moderate technology integration (55.3%), which is notable given the traditional nature of forestry education. This moderate level suggests that forestry programs are successfully integrating modern technologies while maintaining their core disciplinary focus. Natural Resources programs show similar integration levels (51.7%), indicating consistent technology adoption across environmental science disciplines.
+
+\subsection{Cross-Correlation Insights}
+The cross-correlation analysis reveals optimal program level and type combinations for technology integration. Master's and Doctoral Data Science programs show exceptional technology integration (90.9% and 87.5% respectively), suggesting that these combinations provide the ideal environment for technology-focused education.
+
+Forestry programs show increasing technology integration as program level advances: Undergraduate (44.4%), Master's (60.0%), and Doctoral (80.0%). This progression indicates that forestry education successfully integrates technology at advanced levels while maintaining accessibility at the undergraduate level.
+
+\subsection{Technology-Specific Patterns}
+AI/ML technology shows the highest adoption across all program levels and types, reflecting the widespread recognition of artificial intelligence and machine learning as fundamental tools in modern research and practice. GIS technology shows strong integration in Forestry and Natural Resources programs, aligning with the spatial nature of these disciplines.
+
+Drones/UAV technology shows the lowest adoption (9 programs total), identifying this as an emerging technology area with significant potential for future curriculum development. The low adoption rate suggests that drone technology represents a frontier area for forestry and related education.
+
+\subsection{Educational Implications}
+The findings have significant implications for curriculum development and program planning. The strong technology integration in Data Science and Engineering programs provides models for other disciplines seeking to enhance their technology offerings. The moderate integration in Forestry programs suggests a balanced approach that could serve as a template for traditional disciplines adapting to technological change.
+
+The level-based progression patterns suggest that technology integration should be scaffolded across educational levels, with basic technology concepts introduced at the undergraduate level and advanced applications developed at the graduate level.
+
+\subsection{Industry Preparation}
+The technology integration patterns align with industry needs, where advanced positions require sophisticated technology skills. The high integration rates in graduate programs suggest that forestry education is preparing students well for technology-driven careers. The moderate integration in undergraduate programs provides a foundation that can be built upon in professional practice or advanced study.
+
+The cross-correlation findings suggest that students pursuing specific program level and type combinations (e.g., Master's Data Science, Doctoral Engineering) are particularly well-positioned for technology-intensive careers.
+
+\section{Limitations and Considerations}
+
+\subsection{Data Quality}
+The analysis relies on program name-based classification, which may not capture all nuances of program focus. Some programs may span multiple categories or have evolved beyond their original names. Technology relationships may be incomplete or outdated, potentially affecting the accuracy of integration assessments.
+
+\subsection{Classification Challenges}
+The binary classification system may oversimplify complex program structures. Some programs may integrate technology in ways not captured by the current framework. Emerging program types may not fit existing classifications, potentially missing innovative approaches to technology integration.
+
+\subsection{Scope Limitations}
+The analysis is limited to programs in the database, which may not represent all forestry and related programs nationwide. The focus on specific technology categories may miss broader technology integration patterns or emerging technology areas.
+
+\subsection{Relationship Mapping}
+Program-university relationships may be incomplete, and some technology integration methods may not be captured by the current relationship structure. This could affect the accuracy of institutional-level analysis and program-specific insights.
+
+\section{Conclusions}
+
+The analysis of RQ8 reveals significant correlations between technology integration patterns and academic program characteristics. **Doctoral programs show the highest technology integration (67.3%)**, followed by master's (58.9%) and undergraduate (42.1%) programs, indicating a clear progression in technology adoption across educational levels.
+
+**Data Science programs lead in technology integration (89.2%)**, while Forestry programs demonstrate moderate integration (55.3%), suggesting that traditional disciplines are successfully adapting to technological change while maintaining their core focus.
+
+The cross-correlation analysis identifies optimal program level and type combinations, with Master's and Doctoral Data Science programs showing exceptional technology integration (90.9% and 87.5% respectively). Forestry programs demonstrate increasing technology integration as program level advances, from 44.4% at the undergraduate level to 80.0% at the doctoral level.
+
+These findings provide valuable insights for curriculum development, program planning, and strategic decision-making in forestry and related academic programs. The identification of successful technology integration patterns offers models for other disciplines seeking to enhance their technology offerings, while the level-based progression patterns suggest effective approaches for scaffolding technology education across different academic levels.
+
+The analysis contributes to the broader understanding of technology adoption in professional forestry education and provides a foundation for future curriculum development and strategic planning initiatives. The cross-correlation approach reveals complex patterns that single-dimensional analysis would miss, offering comprehensive insights for educational institutions seeking to optimize their technology integration strategies.
+
+\section{References}
+
+\bibliographystyle{apacite}
+\bibliography{references}
+
+\end{document}

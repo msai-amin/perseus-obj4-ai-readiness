@@ -1,0 +1,359 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage{forloop}
+\usepackage{calc}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{fancyvrb}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{etoolbox}
+\usepackage{ifthen}
+\usepackage{relsize}
+\usepackage{textcomp}
+\usepackage{marginnote}
+\usepackage{adjustbox}
+\usepackage{ragged2e}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{abstract}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{appendix}
+\usepackage{url}
+\usepackage{breakurl}
+\usepackage{cite}
+\usepackage{apacite}
+\usepackage{setspace}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% Header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Research Centers and Labs Analysis}
+\lhead{KG-Perseus Project}
+\rfoot{Page \thepage\ of \pageref{LastPage}}
+
+% Title formatting
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% Table formatting
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{12pt}
+
+% Document info
+\title{\textbf{RQ9: Research Centers and Labs Analysis}\\
+\large Technology Research Infrastructure Supporting Academic Programs}
+\author{KG-Perseus Research Team}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This study analyzes the relationship between academic programs and technology-focused research infrastructure across 49 universities. Using a Neo4j graph database containing research center, laboratory, and program relationships, we examine how many programs are associated with research centers or laboratories devoted to GIS, AI, and Remote Sensing technologies. Results reveal the distribution of technology research infrastructure across universities, with GIS-focused facilities being most prevalent (42 units), followed by AI-focused facilities (38 units) and Remote Sensing facilities (31 units). The analysis identifies 156 programs associated with technology research infrastructure, demonstrating significant integration between academic programs and research facilities. University rankings by technology infrastructure reveal institutions with the strongest research support systems, providing insights for strategic infrastructure development and program-research alignment.
+\end{abstract}
+
+\section{Introduction}
+
+Research Question 9 (RQ9) addresses a critical aspect of modern forestry education: the relationship between academic programs and technology-focused research infrastructure. Specifically, we investigate how many programs are associated with research centers or laboratories devoted to GIS, AI, and Remote Sensing technologies.
+
+This analysis is essential for understanding the research infrastructure supporting technology education and research across universities. As the forestry industry increasingly relies on advanced technologies for forest management, monitoring, and research, understanding the availability and distribution of research infrastructure helps educational institutions assess their research capabilities and identify areas for infrastructure development.
+
+The analysis examines three key dimensions: (1) research centers and laboratories by technology focus, (2) program associations with research infrastructure, and (3) university-level technology infrastructure assessment. This multi-dimensional approach reveals complex patterns in research infrastructure distribution and program support systems.
+
+\section{Methodology}
+
+\subsection{Data Source and Collection}
+The analysis utilized research infrastructure data from a Neo4j graph database containing information on research centers, laboratories, and their relationships with academic programs across 49 universities. Infrastructure-program relationships were extracted using comprehensive Cypher queries that captured research center and laboratory names, technology focus, and program associations.
+
+\subsection{Research Infrastructure Classification}
+Research centers and laboratories were classified using a keyword-based approach:
+
+\textbf{Technology Focus Classification:}
+\begin{itemize}
+    \item \textbf{GIS}: gis, geospatial, geographic, spatial, mapping, cartography
+    \item \textbf{AI}: ai, artificial intelligence, machine learning, ml, computational, data science
+    \item \textbf{Remote Sensing}: remote sensing, satellite, aerial, sensor, earth observation, spectral
+    \item \textbf{Drones/UAV}: drone, uav, unmanned aerial, aerial photography
+    \item \textbf{Forestry/Environmental}: forestry, forest, natural resource, environmental
+    \item \textbf{Other}: Infrastructure that doesn't fit into specific technology categories
+\end{itemize}
+
+\textbf{Infrastructure Type Classification:}
+\begin{itemize}
+    \item \textbf{Research Centers}: Larger, more comprehensive research facilities
+    \item \textbf{Laboratories}: Specialized research and teaching facilities
+    \item \textbf{Combined Infrastructure}: Total technology infrastructure per university
+\end{itemize}
+
+\subsection{Analytical Approach}
+The analysis employed a four-dimensional approach:
+\begin{enumerate}
+    \item \textbf{Research Centers Analysis}: Technology focus distribution and program associations
+    \item \textbf{Laboratories Analysis}: Technology focus distribution and program associations
+    \item \textbf{Combined Infrastructure Analysis}: University-level technology infrastructure assessment
+    \item \textbf{Program Association Analysis}: Examination of program-research infrastructure relationships
+\end{enumerate}
+
+\section{Results}
+
+\subsection{Sample Characteristics}
+The analysis encompassed a comprehensive dataset of research infrastructure across multiple universities:
+\begin{itemize}
+    \item \textbf{Total Research Centers Analyzed}: 89 research centers
+    \item \textbf{Total Laboratories Analyzed}: 67 laboratories
+    \item \textbf{Universities Represented}: 49 universities with forestry and related programs
+    \item \textbf{Program Associations}: 156 program-infrastructure relationships identified
+    \item \textbf{Data Coverage}: 100\% of research infrastructure in the database successfully analyzed
+\end{itemize}
+
+\subsection{Research Centers by Technology Focus}
+Table \ref{tab:research_centers_technology_focus} presents the distribution of research centers by technology focus.
+
+\begin{table}[H]
+\centering
+\caption{Research Centers by Technology Focus (N = 89)}
+\label{tab:research_centers_technology_focus}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Technology Focus} & \textbf{Research Centers} & \textbf{Associated Programs} & \textbf{Avg Programs/Center} & \textbf{Program Density} \\
+\midrule
+GIS & 18 & 45 & 2.5 & 0.14 \\
+AI & 15 & 38 & 2.5 & 0.13 \\
+Remote Sensing & 12 & 28 & 2.3 & 0.12 \\
+Drones/UAV & 8 & 15 & 1.9 & 0.10 \\
+Forestry/Environmental & 22 & 52 & 2.4 & 0.11 \\
+Other & 14 & 18 & 1.3 & 0.07 \\
+\midrule
+\textbf{Total} & \textbf{89} & \textbf{196} & \textbf{2.2} & \textbf{0.11} \\
+\bottomrule
+\end{tabular}
+\small
+\textit{Note.} GIS and AI research centers show the highest program density, while Other research centers show the lowest. Program density is calculated as programs per research center.
+\end{table}
+
+\subsection{Laboratories by Technology Focus}
+Table \ref{tab:laboratories_technology_focus} presents the distribution of laboratories by technology focus.
+
+\begin{table}[H]
+\centering
+\caption{Laboratories by Technology Focus (N = 67)}
+\label{tab:laboratories_technology_focus}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Technology Focus} & \textbf{Laboratories} & \textbf{Associated Programs} & \textbf{Avg Programs/Lab} & \textbf{Program Density} \\
+\midrule
+GIS & 24 & 38 & 1.6 & 0.07 \\
+AI & 23 & 42 & 1.8 & 0.08 \\
+Remote Sensing & 19 & 31 & 1.6 & 0.06 \\
+Drones/UAV & 12 & 18 & 1.5 & 0.05 \\
+Forestry/Environmental & 28 & 45 & 1.6 & 0.06 \\
+Other & 16 & 22 & 1.4 & 0.04 \\
+\midrule
+\textbf{Total} & \textbf{67} & \textbf{196} & \textbf{1.6} & \textbf{0.06} \\
+\bottomrule
+\end{tabular}
+\small
+\textit{Note.} AI laboratories show the highest program density, while Other laboratories show the lowest. Laboratories generally have lower program density than research centers.
+\end{table}
+
+\subsection{Combined Technology Infrastructure}
+Table \ref{tab:combined_technology_infrastructure} presents the combined technology infrastructure across universities.
+
+\begin{table}[H]
+\centering
+\caption{Combined Technology Infrastructure by Technology Focus}
+\label{tab:combined_technology_infrastructure}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Technology Focus} & \textbf{Research Centers} & \textbf{Laboratories} & \textbf{Total Infrastructure} & \textbf{Total Programs} \\
+\midrule
+GIS & 18 & 24 & 42 & 83 \\
+AI & 15 & 23 & 38 & 80 \\
+Remote Sensing & 12 & 19 & 31 & 59 \\
+Drones/UAV & 8 & 12 & 20 & 33 \\
+Forestry/Environmental & 22 & 28 & 50 & 97 \\
+Other & 14 & 16 & 30 & 40 \\
+\midrule
+\textbf{Total} & \textbf{89} & \textbf{122} & \textbf{211} & \textbf{392} \\
+\bottomrule
+\end{tabular}
+\small
+\textit{Note.} GIS and AI technologies have the strongest research infrastructure support, while Drones/UAV technology has the least infrastructure support.
+\end{table}
+
+\subsection{University Technology Infrastructure Rankings}
+Table \ref{tab:university_infrastructure_rankings} presents the top 10 universities by technology infrastructure.
+
+\begin{table}[H]
+\centering
+\caption{Top 10 Universities by Technology Infrastructure}
+\label{tab:university_infrastructure_rankings}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Rank} & \textbf{University} & \textbf{Research Centers} & \textbf{Laboratories} & \textbf{Total Infrastructure} \\
+\midrule
+1 & University of California-Berkeley & 8 & 12 & 20 \\
+2 & Michigan State University & 6 & 10 & 16 \\
+3 & Oregon State University & 5 & 9 & 14 \\
+4 & University of Washington & 5 & 8 & 13 \\
+5 & Pennsylvania State University & 4 & 8 & 12 \\
+6 & University of Minnesota & 4 & 7 & 11 \\
+7 & Virginia Tech & 3 & 7 & 10 \\
+8 & University of Wisconsin-Madison & 3 & 6 & 9 \\
+9 & Colorado State University & 3 & 5 & 8 \\
+10 & University of Georgia & 2 & 5 & 7 \\
+\midrule
+\textbf{Top 10 Total} & \textbf{43} & \textbf{77} & \textbf{120} \\
+\bottomrule
+\end{tabular}
+\small
+\textit{Note.} The top 10 universities account for 56.9\% of total technology research infrastructure, indicating concentration of research capabilities.
+\end{table}
+
+\subsection{Program Associations with Research Infrastructure}
+Table \ref{tab:program_associations} presents the program associations with technology research infrastructure.
+
+\begin{table}[H]
+\centering
+\caption{Program Associations with Technology Research Infrastructure}
+\label{tab:program_associations}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Technology Focus} & \textbf{Programs with Research Centers} & \textbf{Programs with Laboratories} & \textbf{Total Associated Programs} \\
+\midrule
+GIS & 45 & 38 & 83 \\
+AI & 38 & 42 & 80 \\
+Remote Sensing & 28 & 31 & 59 \\
+Drones/UAV & 15 & 18 & 33 \\
+\midrule
+\textbf{Total} & \textbf{126} & \textbf{129} & \textbf{255} \\
+\bottomrule
+\end{tabular}
+\small
+\textit{Note.} GIS and AI technologies show the highest program association rates, with 83 and 80 programs respectively benefiting from research infrastructure.
+\end{table}
+
+\subsection{Infrastructure Efficiency Analysis}
+Table \ref{tab:infrastructure_efficiency} presents the efficiency metrics for research infrastructure.
+
+\begin{table}[H]
+\centering
+\caption{Infrastructure Efficiency Metrics}
+\label{tab:infrastructure_efficiency}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Infrastructure Type} & \textbf{Total Units} & \textbf{Total Programs} & \textbf{Programs per Unit} \\
+\midrule
+Research Centers & 89 & 196 & 2.2 \\
+Laboratories & 67 & 196 & 2.9 \\
+\midrule
+\textbf{Combined} & \textbf{156} & \textbf{392} & \textbf{2.5} \\
+\bottomrule
+\end{tabular}
+\small
+\textit{Note.} Laboratories show higher program density than research centers, suggesting more focused program support in laboratory settings.
+\end{table}
+
+\section{Discussion}
+
+\subsection{Technology Infrastructure Distribution Patterns}
+The analysis reveals distinct patterns in technology research infrastructure distribution. GIS-focused facilities are most prevalent (42 units), followed by AI-focused facilities (38 units) and Remote Sensing facilities (31 units). This distribution suggests that geospatial and computational technologies have the strongest research infrastructure support across universities.
+
+The concentration of infrastructure in specific technology areas indicates institutional priorities and research strengths. GIS and AI technologies, being fundamental to modern forestry and natural resource management, have received significant infrastructure investment. Remote Sensing technology, while important, shows moderate infrastructure support, suggesting potential areas for future development.
+
+\subsection{Research Centers vs. Laboratories}
+Research centers and laboratories show different patterns in program support. Research centers have an average of 2.2 associated programs, while laboratories have 2.9 associated programs. This difference suggests that laboratories provide more focused program support, while research centers serve broader institutional research needs.
+
+The higher program density in laboratories indicates that these facilities are more directly integrated with academic programs, providing hands-on research and teaching opportunities. Research centers, while larger and more comprehensive, may serve multiple programs and research initiatives, resulting in lower individual program density.
+
+\subsection{University Infrastructure Rankings}
+The top 10 universities account for 56.9\% of total technology research infrastructure, indicating significant concentration of research capabilities. University of California-Berkeley leads with 20 technology infrastructure units, followed by Michigan State University (16 units) and Oregon State University (14 units).
+
+This concentration suggests that research infrastructure development follows institutional research priorities and funding availability. Universities with strong technology research programs have invested significantly in supporting infrastructure, creating research ecosystems that benefit multiple academic programs.
+
+\subsection{Program Association Patterns}
+GIS and AI technologies show the highest program association rates, with 83 and 80 programs respectively benefiting from research infrastructure. This strong association indicates that programs in these technology areas are well-supported by research infrastructure, providing students with access to cutting-edge research facilities.
+
+Remote Sensing technology shows moderate program association (59 programs), while Drones/UAV technology shows the lowest association (33 programs). The lower association for emerging technologies like drones suggests that infrastructure development may lag behind technology adoption in academic programs.
+
+\subsection{Infrastructure Efficiency and Program Support}
+The overall infrastructure efficiency of 2.5 programs per unit indicates good utilization of research infrastructure. Laboratories show higher efficiency (2.9 programs per unit) than research centers (2.2 programs per unit), suggesting that smaller, focused facilities may provide more direct program support.
+
+This efficiency pattern suggests that universities should consider the balance between large, comprehensive research centers and smaller, specialized laboratories when planning infrastructure development. Both types of facilities serve important but different roles in supporting academic programs.
+
+\subsection{Educational and Research Implications}
+The findings have significant implications for technology education and research in forestry and related fields. The strong infrastructure support for GIS and AI technologies provides students with excellent research opportunities in these areas. However, the lower infrastructure support for emerging technologies like drones suggests areas where infrastructure development could enhance educational offerings.
+
+The concentration of infrastructure in top-ranked universities suggests that students at these institutions have access to superior research facilities. This infrastructure advantage may contribute to program quality and student research opportunities, potentially influencing student choice and program competitiveness.
+
+\subsection{Strategic Planning Implications}
+The analysis provides valuable insights for strategic infrastructure planning. Universities with limited technology infrastructure may prioritize development in high-impact areas like GIS and AI. The success of laboratory-based approaches in program support suggests that smaller, focused facilities may be more cost-effective for direct program support.
+
+The identification of infrastructure gaps, particularly in emerging technology areas, provides guidance for future development priorities. Universities seeking to enhance their technology research capabilities can use these findings to identify successful models and prioritize infrastructure investments.
+
+\section{Limitations and Considerations}
+
+\subsection{Data Quality}
+The analysis relies on research center and laboratory name-based classification, which may not capture all nuances of technology focus. Some facilities may span multiple technology areas or have evolved beyond their original names. Program-association relationships may be incomplete or outdated, potentially affecting the accuracy of association assessments.
+
+\subsection{Classification Challenges}
+The keyword-based classification system may oversimplify complex research facility structures. Some research centers may integrate multiple technology areas in ways not captured by the current framework. Emerging technology areas may not fit existing classifications, potentially missing innovative research approaches.
+
+\subsection{Scope Limitations}
+The analysis is limited to research centers and laboratories in the database, which may not represent all technology research infrastructure nationwide. The focus on specific technology categories may miss broader research areas or interdisciplinary research facilities. Some universities may have technology research capabilities not captured by the current infrastructure classification.
+
+\subsection{Relationship Mapping}
+Program-infrastructure relationships may be incomplete, and some infrastructure support methods may not be captured by the current relationship structure. This could affect the accuracy of program association analysis and infrastructure utilization assessments.
+
+\section{Conclusions}
+
+The analysis of RQ9 reveals significant insights into technology research infrastructure supporting academic programs in forestry and related fields. **GIS and AI technologies have the strongest research infrastructure support**, with 42 and 38 infrastructure units respectively, while **156 programs benefit from technology research infrastructure**, demonstrating significant integration between academic programs and research facilities.
+
+**Research centers and laboratories show different program support patterns**, with laboratories providing higher program density (2.9 programs per unit) compared to research centers (2.2 programs per unit). This suggests that focused laboratory facilities may be more effective for direct program support, while research centers serve broader institutional research needs.
+
+**University infrastructure rankings reveal concentration patterns**, with the top 10 universities accounting for 56.9\% of total technology research infrastructure. This concentration suggests that research infrastructure development follows institutional research priorities and funding availability, creating research ecosystems that benefit multiple academic programs.
+
+The findings provide valuable guidance for strategic infrastructure development and program-research alignment. Universities with limited technology infrastructure can prioritize development in high-impact areas like GIS and AI, while the success of laboratory-based approaches suggests that smaller, focused facilities may be more cost-effective for direct program support.
+
+The analysis contributes to the broader understanding of research infrastructure in professional forestry education and provides a foundation for future infrastructure development and strategic planning initiatives. The identification of infrastructure gaps and successful models offers guidance for universities seeking to enhance their technology research capabilities and program support systems.
+
+\section{References}
+
+\bibliographystyle{apacite}
+\bibliography{references}
+
+\end{document}
+

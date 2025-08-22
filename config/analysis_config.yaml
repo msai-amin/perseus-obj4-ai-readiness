@@ -1,0 +1,29 @@
+# KG-Perseus Analysis Configuration
+
+database:
+  uri: "bolt://localhost:7689"
+  user: "neo4j"
+  password: "perseus2025"
+  timeout: 30
+
+analysis:
+  batch_size: 100
+  retry_attempts: 3
+  output_format: "csv"
+  include_visualizations: true
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/analysis.log"
+
+data_processing:
+  validate_data: true
+  backup_before_processing: true
+  max_file_size_mb: 100
+
+visualization:
+  default_figure_size: [12, 8]
+  dpi: 300
+  save_format: "png"
+  include_pdf: true 
