@@ -1,0 +1,56 @@
+# Voyage AI Embeddings Configuration
+voyage_ai:
+  model_name: "voyage-large-2"  # Default model
+  base_url: "https://api.voyageai.com/v1/embeddings"
+  batch_size: 10  # Process texts in batches to avoid rate limits
+  timeout: 30  # Request timeout in seconds
+
+# Content Extraction Settings
+extraction:
+  min_section_length: 50  # Minimum characters for a valid section
+  section_patterns:
+    - overview
+    - ai_readiness
+    - programs
+    - faculty
+    - research
+    - technology
+    - strategic
+    - references
+
+# Analysis Parameters
+analysis:
+  similarity_threshold: 0.3  # Minimum similarity for AI content relevance
+  max_similar_sections: 20  # Top N most similar sections to show
+  clustering:
+    max_clusters: 5  # Maximum number of clusters for K-means
+    random_state: 42  # For reproducible results
+
+# AI Keywords for Content Filtering
+ai_keywords:
+  - "artificial intelligence"
+  - "AI"
+  - "machine learning"
+  - "ML"
+  - "data science"
+  - "computational"
+  - "algorithm"
+  - "neural network"
+  - "deep learning"
+  - "automation"
+  - "robotics"
+  - "computer vision"
+  - "natural language processing"
+  - "NLP"
+  - "predictive modeling"
+  - "computer science"
+  - "engineering"
+  - "statistics"
+  - "informatics"
+  - "cyber systems"
+
+# Output Settings
+output:
+  results_file: "voyage_analysis_results.json"
+  include_embeddings: false  # Set to true to save full embedding vectors
+  include_raw_content: true  # Include original text content in results
